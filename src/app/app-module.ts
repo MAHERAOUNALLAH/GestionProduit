@@ -8,9 +8,10 @@ import { Listeproduit } from './listeproduit/listeproduit';
 import { Ajouterproduit } from './ajouterproduit/ajouterproduit';
 import { PagenotFound } from './pagenot-found/pagenot-found';
 import { FormsModule } from '@angular/forms';
+import { UpdateProduit } from './update-produit/update-produit';
 
 @NgModule({
-  declarations: [App, Navbar, Listeproduit, Ajouterproduit, PagenotFound],
+  declarations: [App, Navbar, Listeproduit, Ajouterproduit, PagenotFound, UpdateProduit],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
