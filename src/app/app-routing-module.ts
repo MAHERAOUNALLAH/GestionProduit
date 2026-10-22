@@ -1,7 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Listeproduit } from './listeproduit/listeproduit';
+import { Ajouterproduit } from './ajouterproduit/ajouterproduit';
+import { PagenotFound } from './pagenot-found/pagenot-found';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'listeproduit', component: Listeproduit
+  },
+  {
+    path: 'ajouterproduit',component: Ajouterproduit
+  },
+  { path: '', redirectTo: 'listeproduit', pathMatch: 'full' }, 
+  {path:"**", component:PagenotFound} 
+
+
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
