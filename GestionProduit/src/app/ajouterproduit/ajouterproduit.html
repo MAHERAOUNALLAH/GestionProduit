@@ -1,32 +1,15 @@
-<div class="container">
-  <div>
-    <h2>Ajouter un Produit :</h2>
+<div class="container mt-4">
+  <div class="mb-3">
+    <label class="form-label">Nom</label>
+    <input type="text" class="form-control" name="nomProduit" [(ngModel)]="newProduit.nomProduit">
   </div>
-  <form>
-    <div class="col-sm-2 col-md-2 col-lg-2">
-      <label>ID Produit</label>
-      <input type="number" [(ngModel)]="newProduit.id" name="id" class="form-control">
-    </div>
-
-    <div class="col-sm-4 col-md-4 col-lg-4">
-      <label>Nom Produit</label>
-      <input type="text" [(ngModel)]="newProduit.nomProduit" name="nomProduit" class="form-control">
-    </div>
-
-    <div class="col-sm-2 col-md-2 col-lg-2">
-      <label>Prix Produit</label>
-      <input type="number" [(ngModel)]="newProduit.prixProduit" name="prixProduit" class="form-control">
-    </div>
-
-    <div class="col-sm-4 col-md-4 col-lg-4">
-      <label>Date création</label>
-      <input type="date" [(ngModel)]="newProduit.dateCreation" name="dateCreation" class="form-control">
-    </div>
-
-    <div class="mt-2">
-      <button type="submit" (click)="addProduit()" class="btn btn-success">Ajouter</button>
-    </div>
-  </form>
+  <div class="mb-3">
+    <label class="form-label">Prix</label>
+    <input type="number" class="form-control" name="prixProduit" [(ngModel)]="newProduit.prixProduit">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Date de création</label>
+    <input type="date" class="form-control" name="dateCreation" [(ngModel)]="newProduit.dateCreation">
+  </div>
+  <button class="btn btn-primary" (click)="addProduit()">Ajouter</button>
 </div>
-
-
