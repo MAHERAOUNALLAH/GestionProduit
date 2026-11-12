@@ -1,7 +1,16 @@
 {
   "produits": [
-    { "id": 1, "nomProduit": "PC Asus", "prixProduit": 3000.6, "dateCreation": "2011-01-14" },
-    { "id": 2, "nomProduit": "Imprimante Epson", "prixProduit": 450, "dateCreation": "2010-12-17" },
-    { "id": 3, "nomProduit": "Tablette Samsung", "prixProduit": 900.123, "dateCreation": "2020-02-20" }
+    {
+      "id": 1,
+      "nomProduit": "PC Asus",
+      "prixProduit": 3000.6,
+      "dateCreation": "2011-01-14"
+    },
+    {
+      "id": 3,
+      "nomProduit": "Tablette Samsung",
+      "prixProduit": 900.123,
+      "dateCreation": "2020-02-20"
+    }
   ]
 }
