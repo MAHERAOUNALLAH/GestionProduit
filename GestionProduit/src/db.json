@@ -11,6 +11,12 @@
       "nomProduit": "Tablette Samsung",
       "prixProduit": 900.123,
       "dateCreation": "2020-02-20"
+    },
+    {
+      "nomProduit": "sa",
+      "prixProduit": 12,
+      "dateCreation": "2026-11-11",
+      "id": 4
     }
   ]
 }
