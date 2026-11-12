@@ -1,0 +1,30 @@
+{
+  "produits": [
+    {
+      "id": "1",
+      "nomProduit": "PC Asus",
+      "prixProduit": 3000.8,
+      "dateCreation": "2011-01-14"
+    },
+    {
+      "id": "2",
+      "nomProduit": "Imprimante Epson",
+      "prixProduit": 450,
+      "dateCreation": "2010-12-17"
+    },
+    {
+      "id": "3",
+      "nomProduit": "Tablette Samsung",
+      "prixProduit": 900.123,
+      "dateCreation": "2020-02-20"
+    
+    },
+    {
+      "nomProduit": "ess",
+      "prixProduit": 1925,
+      "dateCreation": "2026-11-11",
+      "id": "IqVG8kI_XFY"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
