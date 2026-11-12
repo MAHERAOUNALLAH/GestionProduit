@@ -13,24 +13,36 @@ import { HttpClient } from '@angular/common/http';
 })
 export class Listeproduit implements OnInit {
 
-  produits!: Produit[];
+
   
 
-  constructor(private produitService: ProduitService) {
-    
-  }
+  produits: Produit[] = [];
+
+  constructor(private produitService: ProduitService) {}
+
   ngOnInit(): void {
-    this.getAllProduits();
-  }
-  getAllProduits(){
-   return this.produitService.listeProduits().subscribe(prods => {
+    this.produitService.listeProduit().subscribe(prods => {
       this.produits = prods;
     });
-
   }
 
-  /*supprimerProduit(p: Produit) {
-    const conf = confirm('Etes-vous sûr ?');
-    if (conf) this.produitService.supprimerProduit(p);
-  }*/
-}
+  supprimerProduit(p: Produit) {
+    if (confirm('Etes-vous sûr ?')) {
+      this.produitService.supprimerProduit(p.id!).subscribe(() => {
+        console.log('produit supprimé');
+        this.supprimerProduitDuTableau(p);   // pas de reload (partie VI)
+      });
+    }
+  }
+
+  supprimerProduitDuTableau(prod: Produit) {
+    this.produits = this.produits.filter(cur => cur.id !== prod.id);
+  }
+
+    }
+
+    /*supprimerProduit(p: Produit) {
+      const conf = confirm('Etes-vous sûr ?');
+      if (conf) this.produitService.supprimerProduit(p);
+    }*/
+

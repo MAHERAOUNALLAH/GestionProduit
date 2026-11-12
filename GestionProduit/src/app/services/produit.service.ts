@@ -1,46 +1,35 @@
 import { Injectable } from '@angular/core';
-import { Produit } from '../model/produit.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Produit } from '../model/produit.model';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({ providedIn: 'root' })
 export class ProduitService {
-  produits!: Produit[];
-  apiurl:string="http://localhost:3000/produits"
-  constructor(private http:HttpClient) {
-    
+  apiURL = 'http://localhost:3000/produits';   // sans "/" final
+
+  constructor(private http: HttpClient) {}
+
+  listeProduit(): Observable<Produit[]> {
+    return this.http.get<Produit[]>(this.apiURL);
   }
 
-  listeProduits(): Observable<Produit[]> {
-    return this.http.get<Produit[]>(this.apiurl)
-  }
-  ajouterProduit( prod: Produit):Observable<Produit>{
-    return this.http.post<Produit>(this.apiurl, prod);
-
-}
-  /*ajouterProduit(prod: Produit) {
-    this.produits.push(prod);
-  }
-    
-
-
-  
-
-  supprimerProduit(prod: Produit) {
-    const index = this.produits.indexOf(prod, 0);
-    if (index > -1) {
-      this.produits.splice(index, 1);
-    }
+  ajouterProduit(prod: Produit): Observable<Produit> {
+    return this.http.post<Produit>(this.apiURL, prod, httpOptions);
   }
 
-  consulterProduit(id: number): Produit | undefined {
-    return this.produits.find(p => p.id == id);
+  supprimerProduit(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiURL}/${id}`, httpOptions);
   }
 
-  updateProduit(p: Produit) {
-    const index = this.produits.findIndex(x => x.id === p.id);
-    if (index > -1) {
-      this.produits[index] = p;
-    }
-  }*/
+  consulterProduit(id: number): Observable<Produit> {
+    return this.http.get<Produit>(`${this.apiURL}/${id}`);
+  }
+
+  updateProduit(prod: Produit): Observable<Produit> {
+    return this.http.put<Produit>(`${this.apiURL}/${prod.id}`, prod, httpOptions);
+  }
 }

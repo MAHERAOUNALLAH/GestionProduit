@@ -12,15 +12,12 @@ import { ProduitService } from '../services/produit.service';
 export class Ajouterproduit {
   newProduit = new Produit();
 
-  constructor(private produitService: ProduitService, private router: Router) {}
+constructor(private produitService: ProduitService, private router: Router) {}
 
-  addProduit() {
-    this.produitService.ajouterProduit(this.newProduit).subscribe({
-      next: (prod) => {
-        console.log(prod);
-        this.router.navigate(['listeproduit']);
-      },
-      error: (err) => console.error('Erreur ajout produit :', err),
-    });
-  }
+addProduit() {
+  this.produitService.ajouterProduit(this.newProduit).subscribe(prod => {
+    console.log(prod);
+    this.router.navigate(['produits']);   // dans le subscribe
+  });
+}
 }

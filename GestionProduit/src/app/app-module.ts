@@ -9,12 +9,12 @@ import { Ajouterproduit } from './ajouterproduit/ajouterproduit';
 import { PagenotFound } from './pagenot-found/pagenot-found';
 import { FormsModule } from '@angular/forms';
 import { UpdateProduit } from './update-produit/update-produit';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [App, Navbar, Listeproduit, Ajouterproduit, PagenotFound, UpdateProduit],
   imports: [BrowserModule, AppRoutingModule, FormsModule,HttpClientModule],
-  providers: [provideBrowserGlobalErrorListeners()],
+  providers: [provideHttpClient()],
   bootstrap: [App],
 })
 export class AppModule {}

@@ -12,25 +12,22 @@ import { ProduitService } from '../services/produit.service';
 export class UpdateProduit implements OnInit {
   currentProduit = new Produit();
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private produitService: ProduitService
-  ) {}
+constructor(
+  private activatedRoute: ActivatedRoute,
+  private router: Router,
+  private produitService: ProduitService
+) {}
 
-  ngOnInit() {
-    const id = Number(this.activatedRoute.snapshot.params['id']);
-    /*const prod = this.produitService.consulterProduit(id);
-
-    if (prod) {
-      this.currentProduit = { ...prod };
-    } else {
-      console.warn(`Aucun produit trouvé avec l'id ${id}`);
-    }*/
-  }
-/*
-  updateProduit() {
-    this.produitService.updateProduit(this.currentProduit);
-    this.router.navigate(['listeproduit']);
-  }*/
+ngOnInit() {
+  const id = Number(this.activatedRoute.snapshot.params['id']);
+  this.produitService.consulterProduit(id).subscribe(prod => {
+    this.currentProduit = prod;
+  });
 }
+
+updateProduit() {
+  this.produitService.updateProduit(this.currentProduit).subscribe({
+    next: () => this.router.navigate(['produits']),
+    error: () => alert('Problème lors de la modification !')
+  });
+}}
